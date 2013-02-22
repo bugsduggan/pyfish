@@ -133,7 +133,7 @@ def __best_move__(moves=[], debug=False, engine='./stockfish', book='./book.bin'
 
 def __parse_move__(move):
   # this should get a move like a2a3 and return a tuple like ((0, 6), (0, 5))
-  # TODO handle castling, en passant, check and mate
+  # TODO handle castling, en passant, check, mate and promotion
   mx = move[0:2]
   my = move[2:4]
   return (__parse_loc__(mx), __parse_loc__(my))
