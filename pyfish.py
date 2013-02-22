@@ -32,7 +32,7 @@ def main(argv=None):
     moves = []
     if args.interactive is 'b':
       move = __best_move__(debug=args.debug, engine=args.engine, book=args.book)
-      sys.stdout.write('\nOpponent plays ' + move + '\n')
+      sys.stdout.write('\n  Opponent plays ' + move + '\n')
       moves.append(move)
       b.apply_move(move)
     while playing:
@@ -42,7 +42,7 @@ def main(argv=None):
       moves.append(move)
       b.apply_move(move)
       move = __best_move__(moves=moves, debug=args.debug, engine=args.engine, book=args.book)
-      sys.stdout.write('\nOpponent plays ' + move + '\n')
+      sys.stdout.write('\n  Opponent plays ' + move + '\n')
       moves.append(move)
       b.apply_move(move)
 
