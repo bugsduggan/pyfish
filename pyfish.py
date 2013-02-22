@@ -4,6 +4,13 @@ import sys
 from argparse import *
 from subprocess import Popen, PIPE
 
+# NB
+# The board object's board (the 2D array) is zero indexed from the top left, i.e. 0,0 is
+# the top left corner. All the moves are addressed from 1 (or A) starting in the bottom
+# left (like every other chess board ever since the dawn of Stallman).
+# Basically, I'm saying that the code for parsing moves is a bit of a cluster fuck.
+# dealwithit.gif
+
 def main(argv=None):
   if argv is None:
     argv = sys.argv
@@ -134,6 +141,13 @@ def __best_move__(moves=[], debug=False, engine='./stockfish', book='./book.bin'
 def __parse_move__(move):
   # this should get a move like a2a3 and return a tuple like ((0, 6), (0, 5))
   # TODO handle castling, en passant, check, mate and promotion
+  # move syntax:
+  # <loc><loc>           -> standard move
+  # <loc>x<loc>          -> capture
+  # <loc><loc>+          -> check
+  # <loc><loc>#          -> mate
+  # <loc><loc><q|r|b...> -> promotion
+  # <loc><loc>[e.p]      -> en passant
   mx = move[0:2]
   my = move[2:4]
   return (__parse_loc__(mx), __parse_loc__(my))
