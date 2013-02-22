@@ -26,4 +26,6 @@ google-fu to find one you like
 The engine currently just plays with default settings for everything apart from the opening
 book. It would be nice to be able to tune the difficulty.
 
-It would also be nice if there were **any** error handling at all.
+It would also be nice if there were **any** error handling at all. Oh, and the game won't terminate
+on it's own (you can type `quit` to exit). I also imagine that the move parser methods will choke
+once you start castling/checking/en passant.
