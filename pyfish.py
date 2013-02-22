@@ -94,6 +94,7 @@ class Board:
       self.apply_move(move)
 
   def apply_move(self, move):
+    # TODO handle check and checkmate cases (this is not provided by the engine!
     m = __parse_move__(move)
     fx = m[0][0]
     fy = m[0][1]
@@ -140,14 +141,7 @@ def __best_move__(moves=[], debug=False, engine='./stockfish', book='./book.bin'
 
 def __parse_move__(move):
   # this should get a move like a2a3 and return a tuple like ((0, 6), (0, 5))
-  # TODO handle castling, en passant, check, mate and promotion
-  # move syntax:
-  # <loc><loc>           -> standard move
-  # <loc>x<loc>          -> capture
-  # <loc><loc>+          -> check
-  # <loc><loc>#          -> mate
-  # <loc><loc><q|r|b...> -> promotion
-  # <loc><loc>[e.p]      -> en passant
+  # TODO handle pawn promotion
   mx = move[0:2]
   my = move[2:4]
   return (__parse_loc__(mx), __parse_loc__(my))
