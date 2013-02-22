@@ -1,10 +1,8 @@
-Pyfish
-======
+#Pyfish
 
 A very simple CLI interface for working with UCI chess engines.
 
-Commands
---------
+##Commands
 
 Just run `.pyfish.py --help` for a summary of the commands available.
 
@@ -15,8 +13,7 @@ If you run it with the `-i` or `--interactive` flag, you can play a game against
 (specifying 'w' or 'b' after the flag will allow you to play as that colour. The default
 is to play as white)
 
-Making it work
---------------
+##Making it work
 
 You'll need some kind of UCI chess engine. I've been testing this with Stockfish (and that's
 what it expects as a default) but it **should** work with any UCI compatible engine.
@@ -24,8 +21,7 @@ what it expects as a default) but it **should** work with any UCI compatible eng
 You'll probably also want some kind of opening book (in polyglot .bin format). Use some
 google-fu to find one you like
 
-Todo
-----
+##Todo
 
 The engine currently just plays with default settings for everything apart from the opening
 book. It would be nice to be able to tune the difficulty.
