@@ -12,8 +12,8 @@ def main(argv=None):
   # Add command line options
   parser.add_argument('--debug', action='store_true', help='Displays all of the output from the engine')
   parser.add_argument('-i', '--interactive', nargs='?', type=str, choices=['w', 'b'], help='Play interactively (can specify starting as white or black)', const='w')
-  parser.add_argument('-b', '--book', metavar='PATH', help='The path to the book file', default='./src/book.bin')
-  parser.add_argument('-e', '--engine', metavar='PATH', help='The path to the engine', default='./src/stockfish')
+  parser.add_argument('-b', '--book', metavar='PATH', help='The path to the book file', default='./book.bin')
+  parser.add_argument('-e', '--engine', metavar='PATH', help='The path to the engine', default='./stockfish')
   parser.add_argument('-d', '--display', action='store_true', help='Output the board state graphically')
   parser.add_argument('moves', nargs='*', help='The starting board state as a list of moves', default=[])
 
@@ -113,7 +113,7 @@ class Board:
       sys.stdout.write('+\n')
     sys.stdout.write('\n')
 
-def __query_engine__(moves=[], debug=False, engine='./src/stockfish', setup_str='uci\nsetoption name Book File value ./src/book.bin\nsetoption name OwnBook value true\nisready\n', cmd_str='go\n'):
+def __query_engine__(moves=[], debug=False, engine='./stockfish', setup_str='uci\nsetoption name Book File value ./book.bin\nsetoption name OwnBook value true\nisready\n', cmd_str='go\n'):
   p = Popen(engine, stdin=PIPE, stdout=PIPE)
   move_str = 'position startpos moves'
   for move in moves:
@@ -125,7 +125,7 @@ def __query_engine__(moves=[], debug=False, engine='./src/stockfish', setup_str=
       print 'SERVER> ' + line
   return result
 
-def __best_move__(moves=[], debug=False, engine='./src/stockfish', book='./src/book.bin'):
+def __best_move__(moves=[], debug=False, engine='./stockfish', book='./book.bin'):
   res = __query_engine__(moves=moves, debug=debug, engine=engine, setup_str='uci\nsetoption name Book File value ' + book + '\nsetoption name OwnBook value true\nisready\n')
   for line in res:
     if line.startswith('bestmove'):
