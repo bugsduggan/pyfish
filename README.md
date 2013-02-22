@@ -4,7 +4,7 @@ A very simple CLI interface for working with UCI chess engines.
 
 ##Commands
 
-Just run `.pyfish.py --help` for a summary of the commands available.
+Just run `./pyfish.py --help` for a summary of the commands available.
 
 Essentially, if you give it a list of moves (like `e2e4 e7e5...`) it will find you the
 best next move.
