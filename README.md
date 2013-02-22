@@ -10,7 +10,7 @@ Essentially, if you give it a list of moves (like `e2e4 e7e5...`) it will find y
 best next move.
 
 If you run it with the `-i` or `--interactive` flag, you can play a game against the computer.
-(specifying 'w' or 'b' after the flag will allow you to play as that colour. The default
+(specifying `w` or `b` after the flag will allow you to play as that colour. The default
 is to play as white)
 
 ##Making it work
